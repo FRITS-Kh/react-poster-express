@@ -72,4 +72,4 @@ app.delete('/posts/:id', async (req, res) => {
   res.status(201).json({ message: `Removed a post by ID: ${requestId}` });
 });
 
-app.listen(8080);
+module.exports = app;
