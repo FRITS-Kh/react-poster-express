@@ -1,3 +1,4 @@
+const { onRequest } = require('firebase-functions/v2/https');
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -72,4 +73,4 @@ app.delete('/posts/:id', async (req, res) => {
   res.status(201).json({ message: `Removed a post by ID: ${requestId}` });
 });
 
-module.exports = app;
+exports.app = onRequest(app);
