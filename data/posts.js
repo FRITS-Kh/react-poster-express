@@ -8,7 +8,15 @@ async function getStoredPosts() {
 }
 
 function storePosts(posts) {
-  return fs.writeFile('posts.json', JSON.stringify({ posts: posts || [] }));
+  const postsToStore = [...posts];
+
+  if (postsToStore.length > 300) {
+    postsToStore.splice(100, 300);
+  }
+  return fs.writeFile(
+    'posts.json',
+    JSON.stringify({ posts: postsToStore || [] }),
+  );
 }
 
 function resetPosts() {
