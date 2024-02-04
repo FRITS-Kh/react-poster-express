@@ -1,7 +1,9 @@
 const fs = require('node:fs/promises');
 
+const postsJson = 'functions/posts.json';
+
 async function getStoredPosts() {
-  const rawFileContent = await fs.readFile('posts.json', { encoding: 'utf-8' });
+  const rawFileContent = await fs.readFile(postsJson, { encoding: 'utf-8' });
   const data = JSON.parse(rawFileContent);
   const storedPosts = data.posts ?? [];
   return storedPosts;
@@ -13,14 +15,11 @@ function storePosts(posts) {
   if (postsToStore.length > 300) {
     postsToStore.splice(100, 300);
   }
-  return fs.writeFile(
-    'posts.json',
-    JSON.stringify({ posts: postsToStore || [] }),
-  );
+  return fs.writeFile(postsJson, JSON.stringify({ posts: postsToStore || [] }));
 }
 
 function resetPosts() {
-  fs.copyFile('default-posts.json', 'posts.json');
+  fs.copyFile('default-posts.json', postsJson);
 }
 
 exports.getStoredPosts = getStoredPosts;

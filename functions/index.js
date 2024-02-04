@@ -2,7 +2,7 @@ const { onRequest } = require('firebase-functions/v2/https');
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const { getStoredPosts, storePosts, resetPosts } = require('./data/posts');
+const { getStoredPosts, storePosts, resetPosts } = require('./posts');
 
 const app = express();
 const idsMap = new Map();
