@@ -1,5 +1,6 @@
 {
   "posts": [
+    { "body": "I like Metallica!", "author": "Marusyak", "id": "post-3" },
     { "body": "I like cheese and banana!", "author": "Pug", "id": "post-2" },
     { "body": "Stay with Ukraine!", "author": "Ukrainian", "id": "post-1" }
   ]

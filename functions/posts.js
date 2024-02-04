@@ -1,6 +1,8 @@
 const fs = require('node:fs/promises');
 
-const postsJson = 'functions/posts.json';
+const path = 'functions';
+const postsJson = `${path}/posts.json`;
+const defaultPostsJson = `${path}/default-posts.json`;
 
 async function getStoredPosts() {
   const rawFileContent = await fs.readFile(postsJson, { encoding: 'utf-8' });
@@ -19,7 +21,7 @@ function storePosts(posts) {
 }
 
 function resetPosts() {
-  fs.copyFile('default-posts.json', postsJson);
+  fs.copyFile(defaultPostsJson, postsJson);
 }
 
 exports.getStoredPosts = getStoredPosts;

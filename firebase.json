@@ -6,16 +6,5 @@
       "codebase": "default",
       "ignore": ["firebase-debug.log", "firebase-debug.*.log"]
     }
-  ],
-  "hosting": {
-    "site": "api-react-poster",
-    "public": "public",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "index.html"
-      }
-    ]
-  }
+  ]
 }

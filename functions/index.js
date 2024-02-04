@@ -18,7 +18,13 @@ const idsMap = new Map();
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  const localOrigin = 'http://localhost:5173';
+  const prodOrigin = 'https://react-poster-and-router-6.web.app';
+  const origin = req.headers.origin;
+
+  if (origin === localOrigin || origin === prodOrigin) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   next();
